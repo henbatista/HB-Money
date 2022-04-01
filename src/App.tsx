@@ -3,7 +3,7 @@ import { Header } from "./components/Header";
 import { NewTransactionModal } from "./components/NewTransactionModal";
 
 import { GlobalStyle } from "./styles/global";
-import Modal from 'react-modal'
+import Modal from 'react-modal'; // biblioteca para modal yarn add react-modal
 import { useState } from "react";
 
 Modal.setAppElement('#root');
