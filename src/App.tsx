@@ -8,28 +8,25 @@ import { useState } from "react";
 
 Modal.setAppElement('#root');
 
-export function App(): JSX.Element{
-  
-    // criação do modal
-    const [isNewTransactionModalOpen, setIsNewTransactionModalOpen] = useState(false);
+export function App(): JSX.Element {
 
-    //abrir modal
-    function handleOpenNewTransactionModal(){
-        setIsNewTransactionModalOpen(true);
-    }
+  // criação do modal
+  const [isNewTransactionModalOpen, setIsNewTransactionModalOpen] = useState(false);
 
-    //fechar modal
-    function handleCloseNewTransactionModal(){
-        setIsNewTransactionModalOpen(false);
-    }
-    return (
+  //abrir modal
+  function handleOpenNewTransactionModal() {
+    setIsNewTransactionModalOpen(true);
+  }
+
+  //fechar modal
+  function handleCloseNewTransactionModal() {
+    setIsNewTransactionModalOpen(false);
+  }
+  return (
     <>
-      <Header onOpenNewTransactionModal={handleOpenNewTransactionModal}/>
-      <Dashboard/>
-      <NewTransactionModal
-      isOpen={isNewTransactionModalOpen}
-      onRequestClose={handleCloseNewTransactionModal}
-      />
+      <Header onOpenNewTransactionModal={handleOpenNewTransactionModal} />
+      <Dashboard />
+      <NewTransactionModal isOpen={isNewTransactionModalOpen} onRequestClose={handleCloseNewTransactionModal} />
       <GlobalStyle />
     </>
   );

@@ -30,5 +30,9 @@ div {
         background: var(--green);
         color: #fff;
     }
+
+    img {
+        width: 12%;    
+    }
 }
 `;
