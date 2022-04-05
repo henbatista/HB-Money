@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { darken } from 'polished'; // pacote de manipulção de cores via javascript "yarn add polished"
+import { darken, transparentize } from 'polished'; // transparentize 'propriedade para deixar o fundo transparente /pacote de manipulção de cores via javascript "yarn add polished"
 
 export const Container = styled.form`
 
@@ -62,14 +62,27 @@ display: grid;
 grid-template-columns: 1fr 1fr; //criação das colulnas
 gap: 0.5rem; // espaçamento entre os botões
 
+`;
 
+interface RadioBoxProps {
+    isActive: boolean;
+    activeColor: 'green' | 'red';
+}
 
-button {
+const colors = {
+    green: '#33cc95',
+    red: '#e52e4D'
+}
+
+export const RadioBox = styled.button<RadioBoxProps>`
     height: 4rem;
     border: 1px solid #d7d7d7;
     border-radius: 0.25rem;
 
-    background: transparent;
+    background: ${(props) => props.isActive 
+    ? transparentize(0.9, colors[props.activeColor]) // puxar a cor e deixar transparente
+    : 'transparent'
+    };
 
     display: flex;
     align-items: center;
@@ -91,10 +104,5 @@ button {
     img{
     max-width: 10%;
     }
-}
-
-
-
-
 
 `;
