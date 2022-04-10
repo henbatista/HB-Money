@@ -5,6 +5,8 @@ import { NewTransactionModal } from "./components/NewTransactionModal";
 import { GlobalStyle } from "./styles/global";
 import Modal from 'react-modal'; // biblioteca para modal yarn add react-modal
 import { useState } from "react";
+import { TransactionsProvider } from "./TransactionsContext";
+
 
 Modal.setAppElement('#root');
 
@@ -23,11 +25,17 @@ export function App(): JSX.Element {
     setIsNewTransactionModalOpen(false);
   }
   return (
-    <>
+    <TransactionsProvider>
       <Header onOpenNewTransactionModal={handleOpenNewTransactionModal} />
+
       <Dashboard />
-      <NewTransactionModal isOpen={isNewTransactionModalOpen} onRequestClose={handleCloseNewTransactionModal} />
+
+      <NewTransactionModal 
+        isOpen={isNewTransactionModalOpen} 
+        onRequestClose={handleCloseNewTransactionModal}   
+      />
+      
       <GlobalStyle />
-    </>
+    </TransactionsProvider>
   );
 }
